@@ -12,11 +12,11 @@ spec:
         name: javawebapp
     spec:
       containers:
-      - image: dockerhandson/java-web-app
+      - image: tutum/hello-world
         name: javawebapp
         ports:
         - name: javawebapp
-          containerPort: 8080
+          containerPort: 80
 ---
 # Node Port Service
 apiVersion: v1
@@ -30,9 +30,9 @@ spec:
   ports:
     - port: 80
       name: http
-      targetPort: 8080
+      targetPort: 80
     - port: 443
       name: https
-      targetPort: 8080  
+      targetPort: 808 
   selector:
     name: javawebapp
