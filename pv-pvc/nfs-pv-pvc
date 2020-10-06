@@ -25,3 +25,35 @@ spec:
   resources:
     requests:
       storage: 500Mi
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: mongodbrs
+spec:
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+     metadata:
+       name: mongodbpod
+       labels:
+         app: mongodb
+     spec:
+       volumes:
+       - name: mongodb-pvc
+         persistentVolumeClaim:
+           claimName: pvc-nfs-pv1
+       containers:
+       - name: mongodbcontainer
+         image: mongo
+         ports:
+         - containerPort: 27017
+         env:
+         - name: MONGO_INITDB_ROOT_USERNAME
+           value: devdb
+         - name: MONGO_INITDB_ROOT_PASSWORD
+           value: devdb@123
+         volumeMounts:
+         - name: mongodb-pvc
+           mountPath: /data/db
