@@ -33,6 +33,6 @@ spec:
       targetPort: 80
     - port: 443
       name: https
-      targetPort: 808 
+      targetPort: 80
   selector:
     name: javawebapp
