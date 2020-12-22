@@ -90,13 +90,13 @@ spec:
             - name: PROVISIONER_NAME # do not change
               value: nfs-provisioner # SAME AS PROVISONER NAME VALUE IN STORAGECLASS
             - name: NFS_SERVER # do not change
-              value: 172.31.8.13 # Ip of the NFS SERVER
+              value: 35.153.177.189 # Ip of the NFS SERVER
             - name: NFS_PATH # do not change
               value: /mnt/share # path to nfs directory setup
       volumes:
        - name: nfs-provisioner-v # same as volumemouts name
          nfs:
-           server: 172.31.8.13
+           server: 35.153.177.189
            path:  /mnt/share   
 ---
 apiVersion: storage.k8s.io/v1
