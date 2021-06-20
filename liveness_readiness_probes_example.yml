@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: javawebappcontainer
-        image: dockerhandson/java-web-app:2 
+        image: mylandmarktech/java-web-app
         ports:
         - containerPort: 8080
         readinessProbe:
