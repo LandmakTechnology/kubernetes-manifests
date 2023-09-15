@@ -1,0 +1,14 @@
+apiVersion: vi
+kind: ResourceQuota
+metadata:
+  name: dev-ns-quota
+  namespace: dev
+spec:
+  hard:
+    requests.cpu: "1"
+    requests.memeory: "1Gi"
+    limits.cpu: "2"
+    limits.memory: "4Gi"
+    pods: "4"
+    counts/deployments.app: "1"
+  
